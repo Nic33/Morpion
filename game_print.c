@@ -45,13 +45,4 @@ void game_add(game g, square s , int posX, int posY){
     g->squares[posX * g->sizeY + posY] = s;
 
 }
-bool game_update(game g){
-    for (int i = 0; i< g->sizeX; i++){
-        for (int j = 0; j < g->sizeY; j++){
-            if (g->squares[i *g->sizeY +i] == BLANK){
-                return true;
-            }
-        }
-    }
-    return false;
-}
+

@@ -9,7 +9,7 @@
 game new_game(int x, int y){
     game g = malloc(sizeof(struct game_s));
     if (g == NULL){
-        fprintf(stderr, "erreur d'allocation");
+        fprintf(stderr, "error malloc");
         exit(EXIT_FAILURE);
     };
     g->sizeX = x;
@@ -43,16 +43,12 @@ int main(int argc, char *argv[]) {
     if (argc == 2) {
         game g = game_load(argv[1]);
         game_print(g);
-        printf("i pour plus d'information\n");
+        printf("i for more information\n");
 
         while (g->over == false){
 
             scanf("%c",&c);
             
-            if (game_update(g) == false){
-                printf("Le jeu est terminé ;-)\n");
-
-            }
             if (c == 'i'){
                 printf("i -> info\n");
                 printf("q -> quit\n");
@@ -65,14 +61,14 @@ int main(int argc, char *argv[]) {
 
             }
             if (c == 'q'){
-                printf("fin du jeu\n");
+                printf("end of Game\n");
                 g->over = true;
             }
             if (c == 'n'){
                 printf("new game\n");
                 game_delete(g);
 
-                printf("Quelle taille voulez-vous ?\n");
+                printf("Which size would you like ?\n");
                 scanf("%d %d", &x, &y);
 
                 g = new_game(x, y);
@@ -85,7 +81,7 @@ int main(int argc, char *argv[]) {
                     game_add(g, CROSS, posX, posY);
 
                 }else{
-                    printf("erreur de paramettre \n");
+                    printf("error of position \n");
                 }
                 game_print(g);
 
@@ -97,7 +93,7 @@ int main(int argc, char *argv[]) {
                     game_add(g, CIRCLE, posX, posY);
 
                 }else{
-                    printf("erreur de paramettre \n");
+                    printf("error of position \n");
                 }
                 game_print(g);
 
@@ -119,21 +115,17 @@ int main(int argc, char *argv[]) {
     }
     else{
 
-        printf("Quelle taille voulez-vous ?\n");
+        printf("Which size would you like ?\n");
         scanf("%d %d", &x, &y);
 
         game g = new_game(x, y);
         game_print(g);
-        printf("i pour plus d'information\n");
+        printf("i for more information\n");
 
         while (g->over == false){
 
             scanf("%c",&c);
             scanf("%c",&c);
-            if (game_update(g) == false){
-                printf("Le jeu est terminé ;-)\n");
-                
-            }
 
             if (c == 'i'){
                 printf("i -> info\n");
@@ -147,14 +139,14 @@ int main(int argc, char *argv[]) {
 
             }
             if (c == 'q'){
-                printf("fin du jeu\n");
+                printf("end of game\n");
                 g->over = true;
             }
             if (c == 'n'){
                 printf("new game\n");
                 game_delete(g);
 
-                printf("Quelle taille voulez-vous ?\n");
+                printf("Which size would you like ?\n");
                 scanf("%d %d", &x, &y);
 
                 g = new_game(x, y);
@@ -167,7 +159,7 @@ int main(int argc, char *argv[]) {
                     game_add(g, CROSS, posX, posY);
 
                 }else{
-                    printf("erreur de paramettre \n");
+                    printf("error of position \n");
                 }
                 game_print(g);
 
@@ -179,7 +171,7 @@ int main(int argc, char *argv[]) {
                     game_add(g, CIRCLE, posX, posY);
 
                 }else{
-                    printf("erreur de paramettre \n");
+                    printf("error of position \n");
                 }
                 game_print(g);
 
